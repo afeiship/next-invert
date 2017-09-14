@@ -12,7 +12,7 @@ describe('next/invert', function () {
       rs1
     );
 
-    assert.deepEqual(rs1, { '1': ['a', 'c'], '2': 'b' });
+    assert.deepEqual(rs1, { '1': ['a', 'c'], '2': ['b'] });
   });
 
 });

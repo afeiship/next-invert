@@ -5,15 +5,12 @@
   var UNDEFINED = 'undefined';
 
   nx.invert = function (inObject) {
+
     var map = {};
-    nx.map(inObject, function (key, value) {
+    nx.each(inObject, function (key, value) {
       if (typeof map[value] === UNDEFINED) {
-        map[value] = key;
+        map[value] = [key];
       } else {
-        var oldValue = map[value];
-        if (!Array.isArray(oldValue)) {
-          map[value] = [oldValue];
-        }
         map[value].push(key);
       }
     });
