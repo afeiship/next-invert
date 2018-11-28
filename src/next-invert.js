@@ -1,20 +1,17 @@
 (function () {
 
-  var global = global || this || self || window;
+  var global = global || this || window || Function('return this')();
   var nx = global.nx || require('next-js-core2');
-  var UNDEFINED = 'undefined';
 
   nx.invert = function (inObject) {
-
     var map = {};
     nx.each(inObject, function (key, value) {
-      if (typeof map[value] === UNDEFINED) {
+      if (map[value] === undefined) {
         map[value] = [key];
       } else {
         map[value].push(key);
       }
     });
-
     return map;
   };
 
